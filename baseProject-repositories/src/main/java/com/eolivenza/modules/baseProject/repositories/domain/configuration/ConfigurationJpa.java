@@ -7,7 +7,7 @@ import java.time.DayOfWeek;
 import java.time.LocalTime;
 
 @Entity
-@Table(schema = "ica_baseproject_dm_tables", name = "CONFIGURATION")
+@Table(schema = "baseproject_dm_tables", name = "CONFIGURATION")
 public class ConfigurationJpa {
     @Id
     public String uuid;

@@ -32,7 +32,7 @@ public class DomainDatabaseConfiguration {
     @Bean(DOMAIN_JPA_PROPERTIES_NAME)
     public Map<String, Object> jpaPropertiesDevelopment() {
         Map<String, Object> properties = new HashMap<>();
-        properties.put(JavaxPersistenceSchemaGenerationDatabaseAction.KEY, JavaxPersistenceSchemaGenerationDatabaseAction.CREATE.getValue());
+        properties.put(JavaxPersistenceSchemaGenerationDatabaseAction.KEY, JavaxPersistenceSchemaGenerationDatabaseAction.DROP_AND_CREATE.getValue());
         properties.put(HibernateShowSql.KEY, HibernateShowSql.TRUE.getValue());
         properties.put(HibernateDialect.KEY, "org.hibernate.dialect.H2Dialect");
         properties.put(HibernateFormatSql.KEY, HibernateFormatSql.TRUE.getValue());

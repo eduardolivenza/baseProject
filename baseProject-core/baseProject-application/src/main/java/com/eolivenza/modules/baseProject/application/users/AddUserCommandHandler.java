@@ -3,11 +3,7 @@ package com.eolivenza.modules.baseProject.application.users;
 
 import com.eolivenza.modules.baseProject.application.CommandHandler;
 import com.eolivenza.modules.baseProject.application.annotations.DomainStrictTransactional;
-import com.eolivenza.modules.baseProject.application.configuration.FileNameNotValidException;
-import com.eolivenza.modules.baseProject.application.configuration.commands.overwrite.OverwriteConfigurationCommand;
-import com.eolivenza.modules.baseProject.application.repositories.ConfigurationRepository;
 import com.eolivenza.modules.baseProject.application.repositories.UsersRepository;
-import com.eolivenza.modules.baseProject.domain.model.configuration.Configuration;
 import com.eolivenza.modules.baseProject.domain.model.user.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,13 +25,12 @@ public class AddUserCommandHandler implements CommandHandler<AddUserCommand> {
     @DomainStrictTransactional
     @Override
     public void accept(AddUserCommand addUserCommand) {
-
         User newUser = toDomain(addUserCommand);
-        logger.debug(" Element configuration validated");
-        if (usersRepository.exists(Configuration.CONFIGURATION_UUID)) {
-           /* User actualConfiguration = usersRepository.retrieve(Configuration.CONFIGURATION_UUID);
-            actualConfiguration.overwriteWith(configurationWithNewValues);
-            usersRepository.update(actualConfiguration);*/
+        logger.debug(" Element user validated");
+        if (usersRepository.exists(newUser.getEmail())) {
+            User currentUser = usersRepository.retrieve(newUser.getEmail());
+            currentUser.overwriteWith(newUser);
+            usersRepository.update(currentUser);
         }
         else {
             usersRepository.create(newUser);

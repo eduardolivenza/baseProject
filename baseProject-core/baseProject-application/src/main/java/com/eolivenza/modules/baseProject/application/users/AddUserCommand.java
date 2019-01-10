@@ -24,4 +24,11 @@ public class AddUserCommand implements Command {
     public String getUserName() {
         return this.userName;
     }
+
+    public AddUserCommand(String email, String userPassword, String userName, String userSurname) {
+        this.email = email;
+        this.userPassword = userPassword;
+        this.userName = userName;
+        this.userSurname = userSurname;
+    }
 }

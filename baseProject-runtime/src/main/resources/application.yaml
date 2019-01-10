@@ -9,7 +9,7 @@ h2:
 
 domain:
   datasource:
-    url: "jdbc:h2:tcp://localhost:${h2.server.port}${h2.databases.path}${h2.databases.domain.path};INIT=create schema if not exists ica_baseproject_dm_tables;"
+    url: "jdbc:h2:tcp://localhost:${h2.server.port}${h2.databases.path}${h2.databases.domain.path};INIT=create schema if not exists baseproject_dm_tables;"
     username: admin
 
 management:
