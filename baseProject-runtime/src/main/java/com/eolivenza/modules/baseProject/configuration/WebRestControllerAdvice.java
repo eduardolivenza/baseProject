@@ -1,5 +1,7 @@
 package com.eolivenza.modules.baseProject.configuration;
 
+import com.eolivenza.modules.baseProject.application.users.UserNotCorrectException;
+import com.eolivenza.modules.baseProject.application.users.UserNotExistsException;
 import com.eolivenza.modules.baseProject.domain.model.ModelValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +38,22 @@ public class WebRestControllerAdvice {
         String message = ex.toString();
         Logger.error(message);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).contentType(MediaType.TEXT_PLAIN)
+                .body(createBodyMessageForException(ex));
+    }
+
+    @ExceptionHandler(value = { UserNotCorrectException.class})
+    public ResponseEntity<String> handleUserNotValidatedException(UserNotCorrectException ex) {
+        String message = ex.toString();
+        Logger.error(message);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).contentType(MediaType.TEXT_PLAIN)
+                .body(createBodyMessageForException(ex));
+    }
+
+    @ExceptionHandler(value = { UserNotExistsException.class})
+    public ResponseEntity<String> handleUserNotExistsException(UserNotExistsException ex) {
+        String message = ex.toString();
+        Logger.error(message);
+        return ResponseEntity.status(HttpStatus.NON_AUTHORITATIVE_INFORMATION).contentType(MediaType.TEXT_PLAIN)
                 .body(createBodyMessageForException(ex));
     }
 
