@@ -11,8 +11,8 @@ public class UsersResourceMapper implements ResourceMapper<User, UserResource> {
     public User toFirstType(UserResource object) {
         return new User()
                 .setEmail(object.email)
-                .setName(object.name)
-                .setSurname(object.surname)
+                .setName(object.firstName)
+                .setSurname(object.lastName)
                 .setPassword(object.password);
     }
 

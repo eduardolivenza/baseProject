@@ -8,10 +8,10 @@ public class UserResource {
 
 
     @ApiModelProperty(required = true, value = "Relates to the highest level customer identification. The CustomerID value can come from a global SAP, customer master record, local identifier", example = "Bayley")
-    public String name;
+    public String firstName;
 
     @ApiModelProperty(required = true, value = "The path on the filesystem where to generate the report file. It must exists.", example = "d:")
-    public String surname;
+    public String lastName;
 
     @ApiModelProperty(required = true, value = "The path on the filesystem where to generate the report file. It must exists.", example = "d:")
     public String email;
@@ -21,9 +21,9 @@ public class UserResource {
 
     public UserResource(){}
 
-    public UserResource( String name, String surname, String email, String password) {
-        this.name = name;
-        this.surname = surname;
+    public UserResource( String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
     }

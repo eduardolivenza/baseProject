@@ -66,8 +66,4 @@ public class UsersController {
         validateUserCommandCommandHandler.accept(command);
     }
 
-
-
-
-
 }
