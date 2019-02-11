@@ -5,7 +5,9 @@ import com.eolivenza.modules.baseProject.domain.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @Repository
@@ -36,6 +38,12 @@ public class UsersRepositoryImpl implements UsersRepository {
         if (optionalUserJpa.isPresent())
             user = usersMapper.toDomain(optionalUserJpa.get());
         return user;
+    }
+
+    @Override
+    public List<User> retrieveAll() {
+        List<UserJpa> usersJpaList = usersRepositoryJpaSpringData.findAll();
+        return usersJpaList.stream().map(usersMapper::toDomain).collect(Collectors.toList());
     }
 
     @Override
