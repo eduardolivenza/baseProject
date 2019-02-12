@@ -3,7 +3,7 @@ package com.eolivenza.modules.baseProject.configuration;
 import com.eolivenza.modules.baseProject.application.QueryHandler;
 import com.eolivenza.modules.baseProject.application.QueryLogger;
 import com.eolivenza.modules.baseProject.application.configuration.queries.GetConfigurationQueryHandler;
-import com.eolivenza.modules.baseProject.application.users.GetUserQueryHandler;
+import com.eolivenza.modules.baseProject.application.users.queries.GetUserQueryHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;

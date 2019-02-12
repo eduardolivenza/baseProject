@@ -1,4 +1,4 @@
-package com.eolivenza.modules.baseProject.application.users;
+package com.eolivenza.modules.baseProject.application.users.queries;
 
 import com.eolivenza.modules.baseProject.application.QueryHandler;
 import com.eolivenza.modules.baseProject.application.annotations.DomainStrictTransactional;

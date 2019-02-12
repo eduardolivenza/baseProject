@@ -45,7 +45,7 @@ public class WebRestControllerAdvice {
     public ResponseEntity<String> handleUserNotValidatedException(UserNotCorrectException ex) {
         String message = ex.toString();
         Logger.error(message);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).contentType(MediaType.TEXT_PLAIN)
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).contentType(MediaType.TEXT_PLAIN)
                 .body(createBodyMessageForException(ex));
     }
 
@@ -53,7 +53,7 @@ public class WebRestControllerAdvice {
     public ResponseEntity<String> handleUserNotExistsException(UserNotExistsException ex) {
         String message = ex.toString();
         Logger.error(message);
-        return ResponseEntity.status(HttpStatus.NON_AUTHORITATIVE_INFORMATION).contentType(MediaType.TEXT_PLAIN)
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).contentType(MediaType.TEXT_PLAIN)
                 .body(createBodyMessageForException(ex));
     }
 
