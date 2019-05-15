@@ -13,6 +13,7 @@ public class User  extends Entity<User> {
     private String password;
     private String name;
     private String surname;
+    private UserRights rights;
 
     public User(){ }
 
@@ -49,6 +50,15 @@ public class User  extends Entity<User> {
 
     public User setSurname(String surname) {
         this.surname = surname;
+        return this;
+    }
+
+    public UserRights getRights() {
+        return rights;
+    }
+
+    public User setRights(UserRights rights) {
+        this.rights = rights;
         return this;
     }
 

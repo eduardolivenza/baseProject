@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(schema = "baseproject_dm_tables", name = "USERS")
 public class UserJpa {
@@ -12,16 +13,19 @@ public class UserJpa {
     private String name;
     private String surname;
     private String password;
+    private String userRights;
+
 
     public UserJpa() {
         //JPA demands it
     }
 
-    public UserJpa( String email, String name, String surname, String password ) {
+    public UserJpa( String email, String name, String surname, String password, String userRights ) {
         this.email = email;
         this.name = name;
         this.surname = surname;
         this.password = password;
+        this.userRights = userRights;
     }
 
     public String getEmail() {
@@ -56,8 +60,11 @@ public class UserJpa {
         this.password = password;
     }
 
+    public String getUserRights() {
+        return userRights;
+    }
 
-
-
-
+    public void setUserRights(String userRights) {
+        this.userRights = userRights;
+    }
 }

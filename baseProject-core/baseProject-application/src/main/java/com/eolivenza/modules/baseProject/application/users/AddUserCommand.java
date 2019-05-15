@@ -1,9 +1,11 @@
 package com.eolivenza.modules.baseProject.application.users;
 
 import com.eolivenza.modules.baseProject.application.Command;
+import com.eolivenza.modules.baseProject.domain.model.user.UserRights;
 
 public class AddUserCommand implements Command {
 
+    private UserRights rights;
     private String email;
     private String userPassword;
     private String userName;
@@ -25,10 +27,15 @@ public class AddUserCommand implements Command {
         return this.userName;
     }
 
-    public AddUserCommand(String email, String userPassword, String userName, String userSurname) {
+    public UserRights getUserRights() {
+        return this.rights;
+    }
+
+    public AddUserCommand(String email, String userPassword, String userName, String userSurname, UserRights rights) {
         this.email = email;
         this.userPassword = userPassword;
         this.userName = userName;
         this.userSurname = userSurname;
+        this.rights = rights;
     }
 }

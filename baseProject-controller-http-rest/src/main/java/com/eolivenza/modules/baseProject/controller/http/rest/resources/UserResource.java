@@ -19,12 +19,16 @@ public class UserResource {
     @ApiModelProperty(required = true, value = "Unique identifier related to the sales organization or the country affiliate", example = "34")
     public String password;
 
+    @ApiModelProperty(required = true, value = "Rights and permissions that user will have", example = "administrator")
+    public String userRights;
+
     public UserResource(){}
 
-    public UserResource( String firstName, String lastName, String email, String password) {
+    public UserResource( String firstName, String lastName, String email, String password, String userRights) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.userRights = userRights;
     }
 }

@@ -2,6 +2,7 @@ package com.eolivenza.modules.baseProject.repositories.domain.users;
 
 import com.eolivenza.modules.baseProject.application.Mapper;
 import com.eolivenza.modules.baseProject.domain.model.user.User;
+import com.eolivenza.modules.baseProject.domain.model.user.UserRights;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,7 +14,8 @@ public class UsersMapper implements Mapper<User, UserJpa> {
                 .setEmail( object.getEmail())
                 .setName( object.getName())
                 .setSurname(object.getSurname())
-                .setPassword(object.getPassword());
+                .setPassword(object.getPassword())
+                .setRights( UserRights.valueOf(object.getUserRights()));
     }
 
     /**
@@ -28,7 +30,8 @@ public class UsersMapper implements Mapper<User, UserJpa> {
                 object.getEmail(),
                 object.getName(),
                 object.getSurname(),
-                object.getPassword()
+                object.getPassword(),
+                object.getRights().toString()
         );
     }
 }

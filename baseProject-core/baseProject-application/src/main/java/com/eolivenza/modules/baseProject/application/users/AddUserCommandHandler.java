@@ -5,6 +5,7 @@ import com.eolivenza.modules.baseProject.application.CommandHandler;
 import com.eolivenza.modules.baseProject.application.annotations.DomainStrictTransactional;
 import com.eolivenza.modules.baseProject.application.repositories.UsersRepository;
 import com.eolivenza.modules.baseProject.domain.model.user.User;
+import com.eolivenza.modules.baseProject.domain.model.user.UserRights;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,11 +39,18 @@ public class AddUserCommandHandler implements CommandHandler<AddUserCommand> {
     }
 
     private User toDomain(AddUserCommand addUserCommand) {
-        return new User()
+        User user = new User()
                 .setEmail(addUserCommand.getEmail())
                 .setName(addUserCommand.getUserName())
                 .setSurname(addUserCommand.getUserSurname())
                 .setPassword(addUserCommand.getUserPassword());
+        if (addUserCommand.getUserRights() != null){
+            user.setRights(addUserCommand.getUserRights());
+        }
+        else{
+            user.setRights(UserRights.defaultUser);
+        }
+        return user;
     }
 
     @Override

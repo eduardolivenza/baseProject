@@ -59,7 +59,7 @@ public class UsersController {
     public void addUser(
             @RequestBody UserResource userResource) {
         User  user = usersResourceMapper.toFirstType(userResource);
-        AddUserCommand command = new AddUserCommand(user.getEmail(), user.getPassword(), user.getName(), user.getSurname());
+        AddUserCommand command = new AddUserCommand(user.getEmail(), user.getPassword(), user.getName(), user.getSurname(), user.getRights());
         addUserCommandCommandHandler.accept(command);
     }
 
